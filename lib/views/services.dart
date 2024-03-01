@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:saus_fc/providers/service-provider.dart';
 
 import '../globals/app-assets.dart';
 import '../globals/app-button.dart';
@@ -16,13 +18,21 @@ class Services extends StatefulWidget {
 }
 
 class _ServicesState extends State<Services> {
-  bool isApp = false, isGraphic = false, isDataAnalyst = false, isSupportEdit = false;
+  bool isApp = false,
+      isGraphic = false,
+      isDataAnalyst = false,
+      isSupportEdit = false;
+  bool hover = false;
+  double width = 300;
+  double hoverWidth = 360;
 
   final onHoverActive = Matrix4.identity()..translate(0, -10, 0);
   final onHoverRemove = Matrix4.identity()..translate(0, 0, 0);
 
   @override
   Widget build(BuildContext context) {
+    ServiceProvider serviceProvider = Provider.of(context);
+    serviceProvider.getServiceData();
     final Size size = MediaQuery.of(context).size;
     return HelperClass(
       mobile: Column(
@@ -234,10 +244,54 @@ class _ServicesState extends State<Services> {
                       isApp = value;
                     });
                   },
-                  child: buildAnimatedContainer(
-                    title: 'Landing Page',
-                    asset: AppAssets.code,
-                    hover: isApp,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    width: isApp ? hoverWidth : width,
+                    height: isApp ? 390 : 380,
+                    alignment: Alignment.center,
+                    transform: isApp ? onHoverActive : onHoverRemove,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 24),
+                    decoration: BoxDecoration(
+                      color: AppColors.bgColor2,
+                      borderRadius: BorderRadius.circular(30),
+                      border: isApp
+                          ? Border.all(color: AppColors.themeColor, width: 3)
+                          : null,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          spreadRadius: 4.0,
+                          blurRadius: 4.5,
+                          offset: Offset(3.0, 4.5),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          AppAssets.brush,
+                          width: 50,
+                          height: 50,
+                          color: AppColors.themeColor,
+                        ),
+                        Constants.sizedBox(height: 30.0),
+                        Text(
+                          'Landing Page',
+                          style: AppTextStyles.montserratStyle(
+                              color: Colors.white, fontSize: 22.0),
+                        ),
+                        Constants.sizedBox(height: 12.0),
+                        Text(
+                          'Presentation page, with all the important, relevant information '
+                          'and using multimedia content such as photos and videos.',
+                          style: AppTextStyles.normalStyle(fontSize: 14.0),
+                          textAlign: TextAlign.center,
+                        ),
+                        Constants.sizedBox(height: 20.0),
+                        //AppButtons.buildMaterialButton(buttonName: 'Read More', onTap: () {})
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -250,10 +304,53 @@ class _ServicesState extends State<Services> {
                       isGraphic = value;
                     });
                   },
-                  child: buildAnimatedContainer(
-                    title: 'Online and Sharing',
-                    asset: AppAssets.brush,
-                    hover: isGraphic,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    width: isGraphic ? hoverWidth : width,
+                    height: isGraphic ? 390 : 380,
+                    alignment: Alignment.center,
+                    transform: isGraphic ? onHoverActive : onHoverRemove,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 24),
+                    decoration: BoxDecoration(
+                      color: AppColors.bgColor2,
+                      borderRadius: BorderRadius.circular(30),
+                      border: isGraphic
+                          ? Border.all(color: AppColors.themeColor, width: 3)
+                          : null,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          spreadRadius: 4.0,
+                          blurRadius: 4.5,
+                          offset: Offset(3.0, 4.5),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          AppAssets.brush,
+                          width: 50,
+                          height: 50,
+                          color: AppColors.themeColor,
+                        ),
+                        Constants.sizedBox(height: 30.0),
+                        Text(
+                          'Online and Sharing',
+                          style: AppTextStyles.montserratStyle(
+                              color: Colors.white, fontSize: 22.0),
+                        ),
+                        Constants.sizedBox(height: 12.0),
+                        Text(
+                          'Always available online for consultation by different football agents and easy to share through networks and media',
+                          style: AppTextStyles.normalStyle(fontSize: 14.0),
+                          textAlign: TextAlign.center,
+                        ),
+                        Constants.sizedBox(height: 20.0),
+                        //AppButtons.buildMaterialButton(buttonName: 'Read More', onTap: () {})
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -266,10 +363,53 @@ class _ServicesState extends State<Services> {
                       isDataAnalyst = value;
                     });
                   },
-                  child: buildAnimatedContainer(
-                    title: 'Photos and videos',
-                    asset: AppAssets.analyst,
-                    hover: isDataAnalyst,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    width: isDataAnalyst ? hoverWidth : width,
+                    height: isDataAnalyst ? 390 : 380,
+                    alignment: Alignment.center,
+                    transform: isDataAnalyst ? onHoverActive : onHoverRemove,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 24),
+                    decoration: BoxDecoration(
+                      color: AppColors.bgColor2,
+                      borderRadius: BorderRadius.circular(30),
+                      border: isDataAnalyst
+                          ? Border.all(color: AppColors.themeColor, width: 3)
+                          : null,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          spreadRadius: 4.0,
+                          blurRadius: 4.5,
+                          offset: Offset(3.0, 4.5),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          AppAssets.brush,
+                          width: 50,
+                          height: 50,
+                          color: AppColors.themeColor,
+                        ),
+                        Constants.sizedBox(height: 30.0),
+                        Text(
+                          'Photos and videos',
+                          style: AppTextStyles.montserratStyle(
+                              color: Colors.white, fontSize: 22.0),
+                        ),
+                        Constants.sizedBox(height: 12.0),
+                        Text(
+                          "Sharing of photos and videos, without restriction, for greater appreciation of the player's profile",
+                          style: AppTextStyles.normalStyle(fontSize: 14.0),
+                          textAlign: TextAlign.center,
+                        ),
+                        Constants.sizedBox(height: 20.0),
+                        //AppButtons.buildMaterialButton(buttonName: 'Read More', onTap: () {})
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -282,10 +422,53 @@ class _ServicesState extends State<Services> {
                       isSupportEdit = value;
                     });
                   },
-                  child: buildAnimatedContainer(
-                    title: 'Support and editing',
-                    asset: AppAssets.analyst,
-                    hover: isSupportEdit,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    width: isSupportEdit ? hoverWidth : width,
+                    height: isSupportEdit ? 390 : 380,
+                    alignment: Alignment.center,
+                    transform: isSupportEdit ? onHoverActive : onHoverRemove,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 18, vertical: 24),
+                    decoration: BoxDecoration(
+                      color: AppColors.bgColor2,
+                      borderRadius: BorderRadius.circular(30),
+                      border: isSupportEdit
+                          ? Border.all(color: AppColors.themeColor, width: 3)
+                          : null,
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black54,
+                          spreadRadius: 4.0,
+                          blurRadius: 4.5,
+                          offset: Offset(3.0, 4.5),
+                        )
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          AppAssets.brush,
+                          width: 50,
+                          height: 50,
+                          color: AppColors.themeColor,
+                        ),
+                        Constants.sizedBox(height: 30.0),
+                        Text(
+                          'Support and editing',
+                          style: AppTextStyles.montserratStyle(
+                              color: Colors.white, fontSize: 22.0),
+                        ),
+                        Constants.sizedBox(height: 12.0),
+                        Text(
+                          'Ease and quick response in supporting content editing so that you always have your profile updated with the best content',
+                          style: AppTextStyles.normalStyle(fontSize: 14.0),
+                          textAlign: TextAlign.center,
+                        ),
+                        Constants.sizedBox(height: 20.0),
+                        //AppButtons.buildMaterialButton(buttonName: 'Read More', onTap: () {})
+                      ],
+                    ),
                   ),
                 ),
               ),

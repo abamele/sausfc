@@ -127,8 +127,10 @@ class _NavberWidgetState extends State<NavberWidget> {
                   ],
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => OurMethodology()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => OurMethodology()));
                 },
               ),
             ),
@@ -150,9 +152,7 @@ class _NavberWidgetState extends State<NavberWidget> {
                     ),
                   ],
                 ),
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
             ),
             Padding(
@@ -221,9 +221,7 @@ class _NavberWidgetState extends State<NavberWidget> {
                     ),
                   ],
                 ),
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
             ),
             /*Padding(
@@ -270,8 +268,10 @@ class _NavberWidgetState extends State<NavberWidget> {
                   ],
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => TermsAndConditions()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => TermsAndConditions()));
                 },
               ),
             ),

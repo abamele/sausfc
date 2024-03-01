@@ -24,7 +24,16 @@ class _PartnersState extends State<Partners> {
         backgroundColor: AppColors.bgColor,
         elevation: 0.0,
         toolbarHeight: 90,
-        title:  MaterialButton(
+        title: MaterialButton(
+        elevation: 8,
+        child: Image.asset("assets/logoweb.png", width: 55, height: 55),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MainDashBoard()));
+        },
+      ),
+      centerTitle: true,
+        /*MaterialButton(
           color: AppColors.themeColor,
           splashColor: AppColors.lawGreen,
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
@@ -54,7 +63,7 @@ class _PartnersState extends State<Partners> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MainDashBoard()));
           },
-        ),
+        ),*/
       ),
       drawer: NavberWidget(),
       body: SingleHelper(
@@ -158,7 +167,7 @@ class _PartnersState extends State<Partners> {
                       children: [
                         Container(
                             child: Image.asset(
-                          "assets/barikalogo.jpg",
+                          "assets/beton logo.jpeg",
                           height: 250,
                         )),
                         SizedBox(

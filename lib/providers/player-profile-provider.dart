@@ -21,6 +21,7 @@ class PlayerProfileProvider with ChangeNotifier {
         imageUrl: element.get("imageUrl"),
         dateOfBirth: element.get("dateOfBirth"),
         nationality: element.get("nationality"),
+        flag: element.get("flag"),
         state: element.get("state"),
         position: element.get("position"),
         height: element.get("height"),

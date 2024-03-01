@@ -24,6 +24,15 @@ class _OurMethodologyState extends State<OurMethodology> {
         backgroundColor: AppColors.bgColor,
         elevation: 0.0,
         toolbarHeight: 90,
+        title: MaterialButton(
+          elevation: 8,
+          child: Image.asset("assets/logoweb.png", width: 55, height: 55),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MainDashBoard()));
+          },
+        ),
+        centerTitle: true,
       ),
       drawer: NavberWidget(),
       body: SingleHelper(
@@ -50,7 +59,7 @@ class _OurMethodologyState extends State<OurMethodology> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    /*Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20,
                       ),
@@ -84,7 +93,7 @@ class _OurMethodologyState extends State<OurMethodology> {
                               MaterialPageRoute(builder: (context) => MainDashBoard()));
                         },
                       ),
-                    ),
+                    ),*/
 
                     Expanded(
                       child: Column(
@@ -275,7 +284,7 @@ class _OurMethodologyState extends State<OurMethodology> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        MaterialButton(
+                        /*MaterialButton(
                           color: AppColors.themeColor,
                           splashColor: AppColors.lawGreen,
                           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
@@ -304,7 +313,7 @@ class _OurMethodologyState extends State<OurMethodology> {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) => MainDashBoard()));
                           },
-                        ),
+                        ),*/
                         Expanded(
                           child: Column(
                             children: [

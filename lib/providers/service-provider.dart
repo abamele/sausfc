@@ -10,7 +10,7 @@ class ServiceProvider with ChangeNotifier {
     List<ServiceModel> newList = [];
 
     QuerySnapshot reviewServiceValue =
-    await FirebaseFirestore.instance.collection("ForwardsDB").get();
+    await FirebaseFirestore.instance.collection("ServicesDB").get();
     reviewServiceValue.docs.forEach((element) {
       ServiceModel serviceModel = ServiceModel(
         textId: element.get("textId"),
@@ -23,7 +23,7 @@ class ServiceProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<ServiceModel> get getForwardDataList {
+  List<ServiceModel> get getServiceDataList {
     return serviceDataList;
   }
 }

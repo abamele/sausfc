@@ -25,6 +25,15 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
         elevation: 0.0,
         toolbarHeight: 90,
         title: MaterialButton(
+          elevation: 8,
+          child: Image.asset("assets/logoweb.png", width: 55, height: 55),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MainDashBoard()));
+          },
+        ),
+        centerTitle: true,
+        /*MaterialButton(
           color: AppColors.themeColor,
           splashColor: AppColors.lawGreen,
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
@@ -54,7 +63,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => MainDashBoard()));
           },
-        ),
+        ),*/
       ),
       drawer: NavberWidget(),
       body: SingleHelper(

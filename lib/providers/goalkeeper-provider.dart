@@ -11,7 +11,7 @@ class GoalKeeperProvider with ChangeNotifier {
     List<PlayerProfileModel> newList = [];
 
     QuerySnapshot reviewGoalKeeperValue =
-    await FirebaseFirestore.instance.collection("GoalkeepersDB").get();
+    await FirebaseFirestore.instance.collection("GoalkeeperDB").get();
     reviewGoalKeeperValue.docs.forEach((element) {
       PlayerProfileModel playerProfileModel = PlayerProfileModel(
         //product data
@@ -21,6 +21,7 @@ class GoalKeeperProvider with ChangeNotifier {
         imageUrl: element.get("imageUrl"),
         dateOfBirth: element.get("dateOfBirth"),
         nationality: element.get("nationality"),
+        flag: element.get("flag"),
         state: element.get("state"),
         position: element.get("position"),
         height: element.get("height"),

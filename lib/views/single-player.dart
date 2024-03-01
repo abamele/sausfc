@@ -14,6 +14,8 @@ import '../globals/app-color.dart';
 import '../globals/app-constant.dart';
 import '../globals/app-styles.dart';
 import '../providers/player-profile-provider.dart';
+import '../widgets/navbar_widget.dart';
+import 'dashboard.dart';
 import 'footer.dart';
 
 class SinglePlayer extends StatefulWidget {
@@ -46,8 +48,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
 
   late ChewieController _chewieController;
 
-  final videoPlayerController =
-      VideoPlayerController.asset('');
+  final videoPlayerController = VideoPlayerController.asset('');
 
   @override
   void initState() {
@@ -88,8 +89,17 @@ class _SinglePlayerState extends State<SinglePlayer> {
         backgroundColor: AppColors.bgColor,
         elevation: 0.0,
         toolbarHeight: 90,
+        title: MaterialButton(
+          elevation: 8,
+          child: Image.asset("assets/logoweb.png", width: 55, height: 55),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MainDashBoard()));
+          },
+        ),
+        centerTitle: true,
       ),
-      //drawer: NavberWidget(),
+      drawer: NavberWidget(),
       body: ListView.builder(
           itemCount: 1,
           itemBuilder: (context, index) {
@@ -3213,6 +3223,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                           //height: size.height * 1.06,
                           child: Card(
                             color: AppColors.aestheticsColor,
+                            margin: EdgeInsets.only(left: 20),
                             child: Column(
                               children: [
                                 Row(
@@ -3243,11 +3254,10 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                       padding: const EdgeInsets.all(20.0),
                                       child: Row(
                                         children: [
-                                          Flag.fromCode(
-                                            FlagsCode.KE,
-                                            height: 18,
-                                            width: 35,
-                                            fit: BoxFit.fill,
+                                          Image.network(
+                                            "${widget.playerProfileModel.flag}",
+                                            width: 45,
+                                            height: 20,
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
@@ -3330,7 +3340,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                 left: 8.0,
                                                                 top: 10.0),
                                                         child: Text(
-                                                          "JOINED                             :",
+                                                          "JOINED                                      :",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -3344,7 +3354,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                         padding:
                                                             const EdgeInsets
                                                                 .only(
-                                                                left: 8.0,
+                                                                left: 2.0,
                                                                 top: 10.0),
                                                         child: Text(
                                                           "${widget.playerProfileModel.join}",
@@ -3367,7 +3377,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                 .only(
                                                                 left: 8.0),
                                                         child: Text(
-                                                          "GAMES PLAYED              :",
+                                                          "GAMES PLAYED                      :",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -3381,7 +3391,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                         padding:
                                                             const EdgeInsets
                                                                 .only(
-                                                                left: 8.0),
+                                                                left: 2.0),
                                                         child: Text(
                                                           "${widget.playerProfileModel.gamesPlayed}",
                                                           style: TextStyle(
@@ -3403,7 +3413,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                 .only(
                                                                 left: 8.0),
                                                         child: Text(
-                                                          "POSITION PLAYED          :",
+                                                          "POSITION PLAYED                 :",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -3417,7 +3427,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                         padding:
                                                             const EdgeInsets
                                                                 .only(
-                                                                left: 8.0),
+                                                                left: 2.0),
                                                         child: Text(
                                                           "${widget.playerProfileModel.positionPlayed}",
                                                           style: TextStyle(
@@ -3439,7 +3449,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                 .only(
                                                                 left: 8.0),
                                                         child: Text(
-                                                          "GOALS SCORED              :",
+                                                          "GOALS SCORED                     :",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -3453,7 +3463,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                         padding:
                                                             const EdgeInsets
                                                                 .only(
-                                                                left: 8.0),
+                                                                left: 2.0),
                                                         child: Text(
                                                           "${widget.playerProfileModel.goalsScored}",
                                                           style: TextStyle(
@@ -3475,7 +3485,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                 .only(
                                                                 left: 8.0),
                                                         child: Text(
-                                                          "BOOKING                          :",
+                                                          "BOOKING                                 :",
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -3489,7 +3499,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                         padding:
                                                             const EdgeInsets
                                                                 .only(
-                                                                left: 3.0),
+                                                                left: 2.0),
                                                         child: Text(
                                                           "${widget.playerProfileModel.booking}",
                                                           style: TextStyle(
@@ -4096,7 +4106,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                     left: 5.0,
                                                                     top: 10),
                                                             child: Text(
-                                                              "PASS ACCURENCY           :",
+                                                              "PASS ACCURENCY                         :",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4108,10 +4118,9 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                             padding:
                                                                 const EdgeInsets
                                                                     .only(
-                                                                    left: 3.0,
                                                                     top: 10),
                                                             child: Text(
-                                                              "\$${widget.playerProfileModel.passAccurency}",
+                                                              "${widget.playerProfileModel.passAccurency}",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4130,7 +4139,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                     left: 5.0,
                                                                     top: 5.0),
                                                             child: Text(
-                                                              "DRIBBLE:                            :",
+                                                              "DRIBBLE:                                        :",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4142,10 +4151,44 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                             padding:
                                                                 const EdgeInsets
                                                                     .only(
-                                                              left: 3.0,
+                                                                    top: 5.0),
+                                                            child: Expanded(
+                                                              child: Text(
+                                                                "${widget.playerProfileModel.dribble}",
+                                                                style: TextStyle(
+                                                                    color: Colors
+                                                                        .white,
+                                                                    fontSize:
+                                                                        8.0),
+                                                              ),
                                                             ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    left: 5.0,
+                                                                    top: 5.0),
                                                             child: Text(
-                                                              "\$${widget.playerProfileModel.dribble}",
+                                                              "SPEED                                            :",
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                      .white,
+                                                                  fontSize:
+                                                                      8.0),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                                    top: 5.0),
+                                                            child: Text(
+                                                              "${widget.playerProfileModel.speed}",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4164,7 +4207,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                     left: 5.0,
                                                                     top: 5.0),
                                                             child: Text(
-                                                              "SPEED                                 :",
+                                                              "BALL CONTROL                             :",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4176,44 +4219,9 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                             padding:
                                                                 const EdgeInsets
                                                                     .only(
-                                                                    left: 3.0,
                                                                     top: 5.0),
                                                             child: Text(
-                                                              "\$${widget.playerProfileModel.speed}",
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize:
-                                                                      8.0),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .only(
-                                                                    left: 5.0,
-                                                                    top: 5.0),
-                                                            child: Text(
-                                                              "BALL CONTROL                 :",
-                                                              style: TextStyle(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontSize:
-                                                                      8.0),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .only(
-                                                                    left: 3.0,
-                                                                    top: 5.0),
-                                                            child: Text(
-                                                              "\$${widget.playerProfileModel.ballControl}",
+                                                              "${widget.playerProfileModel.ballControl}",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4232,7 +4240,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                     left: 5.0,
                                                                     top: 5.0),
                                                             child: Text(
-                                                              "SHOOTING POOWER        :",
+                                                              "SHOOTING POOWER                     :",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4244,10 +4252,9 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                             padding:
                                                                 const EdgeInsets
                                                                     .only(
-                                                                    left: 3.0,
                                                                     top: 5.0),
                                                             child: Text(
-                                                              "\$${widget.playerProfileModel.shootingPower}",
+                                                              "${widget.playerProfileModel.shootingPower}",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4266,7 +4273,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                                     left: 5.0,
                                                                     top: 5.0),
                                                             child: Text(
-                                                              "TEAM WORK                      :",
+                                                              "TEAM WORK                                  :",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4278,10 +4285,9 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                             padding:
                                                                 const EdgeInsets
                                                                     .only(
-                                                                    left: 3.0,
                                                                     top: 5.0),
                                                             child: Text(
-                                                              "\$${widget.playerProfileModel.teamWork}",
+                                                              "${widget.playerProfileModel.teamWork}",
                                                               style: TextStyle(
                                                                   color: Colors
                                                                       .white,
@@ -4364,7 +4370,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                 padding: const EdgeInsets.only(
                                                     right: 8.0),
                                                 child: Text(
-                                                    "${widget.playerProfileModel.coordScore}",
+                                                    "${widget.playerProfileModel.coordScore.toStringAsFixed(2)}",
                                                     style: GoogleFonts.poppins(
                                                         fontWeight:
                                                             FontWeight.w800,
@@ -4425,7 +4431,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                           padding:
                                               const EdgeInsets.only(left: 5.0),
                                           child: Text(
-                                              "${widget.playerProfileModel.coordScore}",
+                                              "${widget.playerProfileModel.coordScore.toStringAsFixed(2)}",
                                               style: GoogleFonts.poppins(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 18)),
@@ -4462,7 +4468,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                 padding: const EdgeInsets.only(
                                                     right: 8.0),
                                                 child: Text(
-                                                    "${widget.playerProfileModel.agilityScore}",
+                                                    "${widget.playerProfileModel.agilityScore.toStringAsFixed(2)}",
                                                     style: GoogleFonts.poppins(
                                                         fontWeight:
                                                             FontWeight.w800,
@@ -4523,7 +4529,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                           padding:
                                               const EdgeInsets.only(left: 5.0),
                                           child: Text(
-                                              "${widget.playerProfileModel.agilityCoachName}",
+                                              "${widget.playerProfileModel.endurScore.toStringAsFixed(2)}",
                                               style: GoogleFonts.poppins(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 18)),
@@ -4564,7 +4570,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                 padding: const EdgeInsets.only(
                                                     right: 8.0),
                                                 child: Text(
-                                                    "${widget.playerProfileModel.endurScore}",
+                                                    "${widget.playerProfileModel.endurScore.toStringAsFixed(2)}",
                                                     style: GoogleFonts.poppins(
                                                         fontWeight:
                                                             FontWeight.w800,
@@ -4625,7 +4631,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                           padding:
                                               const EdgeInsets.only(left: 5.0),
                                           child: Text(
-                                              "${widget.playerProfileModel.agilityCoachName}",
+                                              "${widget.playerProfileModel.endurScore.toStringAsFixed(2)}",
                                               style: GoogleFonts.poppins(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 18)),
@@ -4662,7 +4668,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                                 padding: const EdgeInsets.only(
                                                     right: 8.0),
                                                 child: Text(
-                                                    "${widget.playerProfileModel.powerScore}",
+                                                    "${widget.playerProfileModel.powerScore.toStringAsFixed(2)}",
                                                     style: GoogleFonts.poppins(
                                                         fontWeight:
                                                             FontWeight.w800,
@@ -4723,7 +4729,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                           padding:
                                               const EdgeInsets.only(left: 5.0),
                                           child: Text(
-                                              "${widget.playerProfileModel.powerScore}",
+                                              "${widget.playerProfileModel.powerScore.toStringAsFixed(2)}",
                                               style: GoogleFonts.poppins(
                                                   fontWeight: FontWeight.bold,
                                                   fontSize: 18)),
@@ -4789,7 +4795,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                     Container(
                         padding: EdgeInsets.symmetric(
                             vertical: size.height * 0.01,
-                            horizontal: size.width * 0.0),
+                            horizontal: size.width * 0.01),
                         child: buildProjectGridView(crossAxisCount: 4)),
                     SizedBox(
                       height: 30,

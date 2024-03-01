@@ -48,6 +48,15 @@ class _AllPlayersState extends State<AllPlayers> {
         backgroundColor: AppColors.bgColor,
         elevation: 0.0,
         toolbarHeight: 90,
+        title: MaterialButton(
+          elevation: 8,
+          child: Image.asset("assets/logoweb.png", width: 55, height: 55),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => MainDashBoard()));
+          },
+        ),
+        centerTitle: true,
       ),
       drawer: NavberWidget(),
       body: SingleHelper(
@@ -120,6 +129,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                     Alignment.bottomCenter,
                                                 imageUrl: "${data1.imageUrl}",
                                                 width: size.width * 0.23,
+                                                height: size.height* 4,
                                                 boxFit: BoxFit.fill,
                                                 //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                               ),
@@ -330,7 +340,7 @@ class _AllPlayersState extends State<AllPlayers> {
                         ),
                       ),
                     ),
-                    Container(
+                    /*Container(
                       margin: EdgeInsets.only(right: 60),
                       child: MaterialButton(
                         color: AppColors.themeColor,
@@ -367,7 +377,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                   builder: (context) => MainDashBoard()));
                         },
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
                 SizedBox(
@@ -446,6 +456,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                       Alignment.bottomCenter,
                                                   imageUrl: "${data2.imageUrl}",
                                                   width: size.width * 0.23,
+                                                  height: size.height* 4,
                                                   boxFit: BoxFit.fill,
                                                   //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                                 ),
@@ -662,7 +673,7 @@ class _AllPlayersState extends State<AllPlayers> {
                           ),
                         ),
                       ),
-                      Container(
+                      /*Container(
                         margin: EdgeInsets.only(right: 20),
                         child: MaterialButton(
                           color: AppColors.themeColor,
@@ -699,7 +710,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                     builder: (context) => MainDashBoard()));
                           },
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                   SizedBox(
@@ -779,6 +790,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                       Alignment.bottomCenter,
                                                   imageUrl: "${data3.imageUrl}",
                                                   width: size.width * 0.23,
+                                                  height: size.height* 4,
                                                   boxFit: BoxFit.fill,
                                                   //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                                 ),
@@ -997,7 +1009,7 @@ class _AllPlayersState extends State<AllPlayers> {
                           ),
                         ),
                       ),
-                      Container(
+                      /*Container(
                         margin: EdgeInsets.only(right: 20),
                         child: MaterialButton(
                           color: AppColors.themeColor,
@@ -1034,7 +1046,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                     builder: (context) => MainDashBoard()));
                           },
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                   SizedBox(
@@ -1114,6 +1126,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                       Alignment.bottomCenter,
                                                   imageUrl: "${data4.imageUrl}",
                                                   width: size.width * 0.23,
+                                                  height: size.height* 4,
                                                   boxFit: BoxFit.fill,
                                                   //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                                 ),
@@ -1332,7 +1345,7 @@ class _AllPlayersState extends State<AllPlayers> {
                           ),
                         ),
                       ),
-                      Container(
+                      /*Container(
                         margin: EdgeInsets.only(right: 20),
                         child: MaterialButton(
                           color: AppColors.themeColor,
@@ -1369,7 +1382,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                     builder: (context) => MainDashBoard()));
                           },
                         ),
-                      ),
+                      ),*/
                     ],
                   ),
                   SizedBox(

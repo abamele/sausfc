@@ -5,6 +5,7 @@ class PlayerProfileModel {
   String? imageUrl;
   String? dateOfBirth;
   String? nationality;
+  String? flag;
   String? state;
   String? position;
   String? height;
@@ -61,6 +62,7 @@ class PlayerProfileModel {
       this.imageUrl,
       this.dateOfBirth,
       this.nationality,
+      this.flag,
       this.state,
       this.position,
       this.height,

@@ -11,7 +11,7 @@ class MidfieldProvider with ChangeNotifier {
     List<PlayerProfileModel> newList = [];
 
     QuerySnapshot reviewMidfieldValue =
-    await FirebaseFirestore.instance.collection("MidfieldersDB").get();
+    await FirebaseFirestore.instance.collection("MidfieldDB").get();
     reviewMidfieldValue.docs.forEach((element) {
       PlayerProfileModel playerProfileModel = PlayerProfileModel(
         //product data
@@ -21,6 +21,7 @@ class MidfieldProvider with ChangeNotifier {
         imageUrl: element.get("imageUrl"),
         dateOfBirth: element.get("dateOfBirth"),
         nationality: element.get("nationality"),
+        flag: element.get("flag"),
         state: element.get("state"),
         position: element.get("position"),
         height: element.get("height"),

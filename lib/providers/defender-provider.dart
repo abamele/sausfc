@@ -10,7 +10,7 @@ class DefenderProvider with ChangeNotifier {
     List<PlayerProfileModel> newList = [];
 
     QuerySnapshot reviewDefenderValue =
-    await FirebaseFirestore.instance.collection("DefendersDB").get();
+    await FirebaseFirestore.instance.collection("DefendersDb").get();
     reviewDefenderValue.docs.forEach((element) {
       PlayerProfileModel playerProfileModel = PlayerProfileModel(
         //product data
@@ -20,6 +20,7 @@ class DefenderProvider with ChangeNotifier {
         imageUrl: element.get("imageUrl"),
         dateOfBirth: element.get("dateOfBirth"),
         nationality: element.get("nationality"),
+        flag: element.get("flag"),
         state: element.get("state"),
         position: element.get("position"),
         height: element.get("height"),

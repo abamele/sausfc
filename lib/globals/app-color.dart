@@ -19,4 +19,5 @@ class AppColors {
   static Color PurpleColor = Color(0xFF462d87);
   static Color nColor = Color(0xFFffede7);
   static Color blackLifhtColor = Color(0xFF45526e);
+
 }

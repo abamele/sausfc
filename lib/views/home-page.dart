@@ -21,10 +21,11 @@ class _HomePageState extends State<HomePage> {
 
   List images = [
     "assets/team 2021.jpeg",
+    "assets/team2022_2.png",
+    "assets/team2022_3.png",
+    "assets/team2022_1.jpg",
     "assets/sausfcteam.jpeg",
-    "assets/vice champion.png",
-    "assets/miftah.png",
-
+    "assets/team2023_1.png",
   ];
   final socialButtons = <String>[
     AppAssets.facebook,

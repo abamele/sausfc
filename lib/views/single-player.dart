@@ -3640,12 +3640,15 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                   width: double.infinity,
                                   child: Card(
                                     child: Row(
+                                      mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Column(
+                                          mainAxisSize: MainAxisSize.min,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3675,6 +3678,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3703,6 +3707,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3731,6 +3736,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3759,6 +3765,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3787,6 +3794,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3815,6 +3823,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3843,6 +3852,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3871,6 +3881,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3899,6 +3910,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3929,6 +3941,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3958,6 +3971,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                               ],
                                             ),
                                             Row(
+                                              mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding:
@@ -3996,6 +4010,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                                           width: 60,
                                         ),
                                         Column(
+                                          mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
                                           children: [
@@ -4869,7 +4884,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(
-                        image: AssetImage("assets/stopper.png"),
+                        image: AssetImage("assets/persImage.jpeg"),
                         fit: BoxFit.fill),
                   ),
                 ),

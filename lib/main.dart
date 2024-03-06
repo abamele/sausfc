@@ -46,11 +46,7 @@ class MyApp extends StatelessWidget {
             create: (context) => ServiceProvider()),
       ],
       child: MaterialApp(
-        title: 'My Portfolio',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
         home: PageStorage(
           bucket: bucket,
           child: const MainDashBoard(),

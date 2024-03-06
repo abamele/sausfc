@@ -60,7 +60,7 @@ class _MainDashBoardState extends State<MainDashBoard> {
     });
   }
 
-  final yourScrollController = ScrollController();
+  ScrollController yourScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {

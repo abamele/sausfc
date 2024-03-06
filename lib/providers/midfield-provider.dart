@@ -18,6 +18,7 @@ class MidfieldProvider with ChangeNotifier {
         playerId: element.get("playerId"),
         fullName: element.get("fullName"),
         playerNo: element.get("playerNo"),
+        profileImage: element.get("profileImage"),
         imageUrl: element.get("imageUrl"),
         dateOfBirth: element.get("dateOfBirth"),
         nationality: element.get("nationality"),

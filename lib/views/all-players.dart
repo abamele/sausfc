@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:saus_fc/providers/forward-provider.dart';
 import 'package:saus_fc/providers/goalkeeper-provider.dart';
 import 'package:saus_fc/providers/midfield-provider.dart';
+import 'package:saus_fc/views/player-profile.dart';
 import 'package:saus_fc/views/single-helper.dart';
 import 'package:saus_fc/views/single-player.dart';
 import 'package:provider/provider.dart';
@@ -129,7 +130,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                     Alignment.bottomCenter,
                                                 imageUrl: "${data1.imageUrl}",
                                                 width: size.width * 0.23,
-                                                height: size.height* 4,
+                                                height: size.height * 4,
                                                 boxFit: BoxFit.fill,
                                                 //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                               ),
@@ -195,7 +196,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    SinglePlayer(
+                                                    PlayerProfile(
                                                         playerProfileModel:
                                                             data1)));
                                       },
@@ -456,7 +457,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                       Alignment.bottomCenter,
                                                   imageUrl: "${data2.imageUrl}",
                                                   width: size.width * 0.23,
-                                                  height: size.height* 4,
+                                                  height: size.height * 4,
                                                   boxFit: BoxFit.fill,
                                                   //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                                 ),
@@ -525,7 +526,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SinglePlayer(
+                                                      PlayerProfile(
                                                           playerProfileModel:
                                                               data2)));
                                         },
@@ -790,7 +791,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                       Alignment.bottomCenter,
                                                   imageUrl: "${data3.imageUrl}",
                                                   width: size.width * 0.23,
-                                                  height: size.height* 4,
+                                                  height: size.height * 4,
                                                   boxFit: BoxFit.fill,
                                                   //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                                 ),
@@ -859,7 +860,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SinglePlayer(
+                                                      PlayerProfile(
                                                           playerProfileModel:
                                                               data3)));
                                         },
@@ -1126,7 +1127,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                                       Alignment.bottomCenter,
                                                   imageUrl: "${data4.imageUrl}",
                                                   width: size.width * 0.23,
-                                                  height: size.height* 4,
+                                                  height: size.height * 4,
                                                   boxFit: BoxFit.fill,
                                                   //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
                                                 ),
@@ -1195,7 +1196,7 @@ class _AllPlayersState extends State<AllPlayers> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      SinglePlayer(
+                                                      PlayerProfile(
                                                           playerProfileModel:
                                                               data4)));
                                         },

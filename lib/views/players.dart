@@ -309,67 +309,72 @@ class _PlayersState extends State<Players> {
                       InkWell(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
-                          child: Card(
-                            child: Stack(
-                              children: [
-                                Image.asset(
-                                  "assets/stopper1.png",
-                                ),
-                                /*FancyShimmerImage(
-                                  alignment: Alignment.bottomCenter,
-                                  imageUrl: "${data5.imageUrl}",
-                                  width: size.width * 0.23,
-                                  boxFit: BoxFit.fill,
-                                  //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
-                                ),*/
-                                Positioned(
-                                  left: 0,
-                                  right: 0,
-                                  bottom: 0,
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        color: AppColors.themeColor,
-                                        width: 60,
-                                        height: 90,
-                                        child: Center(
-                                          child: Text(
-                                            "2",
-                                            style:
-                                                AppTextStyles.montserratStyle(
-                                                    fontSize: 28,
-                                                    color: Colors.black),
+                          child: Container(
+                            height: size.height * 0.47,
+                            child: Card(
+                              child: Stack(
+                                children: [
+                                  Image.asset(
+                                    "assets/sayid10.png",
+                                    fit: BoxFit.fill,
+                                      width: size.width * 0.23
+                                  ),
+                                  /*FancyShimmerImage(
+                                    alignment: Alignment.bottomCenter,
+                                    imageUrl: "${data5.imageUrl}",
+                                    width: size.width * 0.23,
+                                    boxFit: BoxFit.fill,
+                                    //boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                                  ),*/
+                                  Positioned(
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          color: AppColors.themeColor,
+                                          width: 60,
+                                          height: 90,
+                                          child: Center(
+                                            child: Text(
+                                              "2",
+                                              style:
+                                                  AppTextStyles.montserratStyle(
+                                                      fontSize: 28,
+                                                      color: Colors.black),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Container(
-                                          height: 90,
-                                          decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              borderRadius: BorderRadius.only(
-                                                  bottomLeft:
-                                                      Radius.circular(4.0),
-                                                  bottomRight:
-                                                      Radius.circular(4.0))),
-                                          child: Center(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(10.0),
-                                              child: Text(
-                                                "MUSTAFA HUSSEIN",
-                                                style:
-                                                    AppTextStyles.normalStyle(
-                                                        color: Colors.black),
+                                        Expanded(
+                                          child: Container(
+                                            height: 90,
+                                            decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius: BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(4.0),
+                                                    bottomRight:
+                                                        Radius.circular(4.0))),
+                                            child: Center(
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(10.0),
+                                                child: Text(
+                                                  "MUSTAFA HUSSEIN",
+                                                  style:
+                                                      AppTextStyles.normalStyle(
+                                                          color: Colors.black),
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ],
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
 
@@ -428,16 +433,16 @@ class _PlayersState extends State<Players> {
                           print("tıkla");
                         },
                       ),
-                      /*Visibility(
+                      Visibility(
                         visible: index == hoveredIndex,
                         child: AnimatedContainer(
-                          width: MediaQuery.of(context).size.width * 0.3,
+                          width: MediaQuery.of(context).size.width * 0.19,
                           duration: const Duration(milliseconds: 600),
                           transform:
                               index == hoveredIndex ? onH0verEffect : null,
                           curve: Curves.easeIn,
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 14, vertical: 16),
+                              horizontal: 14, vertical: 22),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             gradient: LinearGradient(
@@ -488,7 +493,7 @@ class _PlayersState extends State<Players> {
                             ],
                           ),
                         ),
-                      ),*/
+                      ),
                     ],
                   ),
                 ),

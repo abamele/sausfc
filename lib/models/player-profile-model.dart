@@ -2,6 +2,7 @@ class PlayerProfileModel {
   String? playerId;
   String? fullName;
   num playerNo;
+  String? profileImage;
   String? imageUrl;
   String? dateOfBirth;
   String? nationality;
@@ -59,6 +60,7 @@ class PlayerProfileModel {
       {this.playerId,
       this.fullName,
       required this.playerNo,
+      this.profileImage,
       this.imageUrl,
       this.dateOfBirth,
       this.nationality,

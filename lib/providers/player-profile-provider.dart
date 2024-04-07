@@ -1,17 +1,15 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:saus_fc/models/player-profile-model.dart';
 
 class PlayerProfileProvider with ChangeNotifier {
-
   List<PlayerProfileModel> playerProfileDataList = [];
 
   void getPlayerProfileData() async {
     List<PlayerProfileModel> newList = [];
 
     QuerySnapshot reviewAllPlayerProfileValue =
-    await FirebaseFirestore.instance.collection("PlayersProfileDB").get();
+        await FirebaseFirestore.instance.collection("PlayersProfileDB").get();
     reviewAllPlayerProfileValue.docs.forEach((element) {
       PlayerProfileModel playerProfileModel = PlayerProfileModel(
         //product data
@@ -20,6 +18,8 @@ class PlayerProfileProvider with ChangeNotifier {
         playerNo: element.get("playerNo"),
         profileImage: element.get("profileImage"),
         imageUrl: element.get("imageUrl"),
+        imageGallery: List<String>.from(element.get('imageGallery')),
+        //logo: element.get("logo"),
         dateOfBirth: element.get("dateOfBirth"),
         nationality: element.get("nationality"),
         flag: element.get("flag"),
@@ -37,8 +37,8 @@ class PlayerProfileProvider with ChangeNotifier {
         positionPlayed: element.get("positionPlayed"),
         goalsScored: element.get("goalsScored"),
         booking: element.get("booking"),
-        season: element.get("season"),
-        club: element.get("club"),
+        season: List<num>.from(element.get('season')),
+        club: List<String>.from(element.get('club')),
         passAccurency: element.get("passAccurency"),
         dribble: element.get("dribble"),
         speed: element.get("speed"),

@@ -12,5 +12,8 @@ class AppAssets {
   static String work1 = 'assets/work1.jpg';
   static String work2 = 'assets/work2.jpg';
   static String share = 'assets/share.png';
-  static String language = 'assets/language.png';
+  static String world = 'assets/language.png';
+  static String document = 'assets/document-icon.png';
+  static String video_play = 'assets/video-play.png';
+  static String edit = 'assets/edit-icon.png';
 }

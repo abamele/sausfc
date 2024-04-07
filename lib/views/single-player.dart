@@ -1,19 +1,17 @@
-import 'package:animate_do/animate_do.dart';
+/*import 'package:animate_do/animate_do.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flag/flag_enum.dart';
 import 'package:flag/flag_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saus_fc/models/player-profile-model.dart';
-import 'package:saus_fc/views/single-helper.dart';
-import 'package:provider/provider.dart';
+import 'package:saus_fc/helpers/single-helper.dart';
 import 'package:video_player/video_player.dart';
 
 import '../globals/app-assets.dart';
 import '../globals/app-color.dart';
 import '../globals/app-constant.dart';
 import '../globals/app-styles.dart';
-import '../providers/player-profile-provider.dart';
 import '../widgets/navbar_widget.dart';
 import 'dashboard.dart';
 import 'footer.dart';
@@ -93,8 +91,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
           elevation: 8,
           child: Image.asset("assets/logoweb.png", width: 55, height: 55),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MainDashBoard()));
+            Navigator.pop(context);
           },
         ),
         centerTitle: true,
@@ -1662,6 +1659,11 @@ class _SinglePlayerState extends State<SinglePlayer> {
                     SizedBox(
                       height: 30,
                     ),
+                    Container(
+                      color: Colors.white,
+                      height: 40,
+                      width: double.infinity,
+                    ),
                     FooterClass()
                   ],
                 ),
@@ -3206,6 +3208,11 @@ class _SinglePlayerState extends State<SinglePlayer> {
                     ),
                     SizedBox(
                       height: 30,
+                    ),
+                    Container(
+                      color: Colors.white,
+                      height: 70,
+                      width: double.infinity,
                     ),
                     FooterClass()
                   ],
@@ -4815,6 +4822,11 @@ class _SinglePlayerState extends State<SinglePlayer> {
                     SizedBox(
                       height: 30,
                     ),
+                    Container(
+                      color: Colors.white,
+                      height: 70,
+                      width: double.infinity,
+                    ),
                     FooterClass()
                   ],
                 ),
@@ -4953,4 +4965,4 @@ class _SinglePlayerState extends State<SinglePlayer> {
       },
     );
   }
-}
+}*/

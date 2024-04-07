@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+  <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -57,26 +57,25 @@
   </script>
   <script type="module">
       // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase_storage.js";
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+      import { getStorage } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-storage.js";
+
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
       // Your web app's Firebase configuration
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
       const firebaseConfig = {
-            apiKey: "AIzaSyBqARG1LpgLlbaKMk4hu6Dt7P8HWjEFUFc",
-            authDomain: "movies-aebb8.firebaseapp.com",
-            projectId: "movies-aebb8",
-            storageBucket: "movies-aebb8.appspot.com",
-            messagingSenderId: "438846341696",
-            appId: "1:438846341696:web:e1c2a8ac5543eca0ec95a5"
+          apiKey: "AIzaSyCc6-GUPHm4ImBjCzwpkFn1aTOayl0tdJ4",
+          authDomain: "sausfc-4d028.firebaseapp.com",
+          projectId: "sausfc-4d028",
+          storageBucket: "sausfc-4d028.appspot.com",
+          messagingSenderId: "70719324027",
+          appId: "1:70719324027:web:a6922a85836c1cbaa847de",
+          measurementId: "G-W6FP61B457"
       };
-
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);

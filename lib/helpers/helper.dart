@@ -20,7 +20,7 @@ class HelperClass extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 768) {
+        if (constraints.maxWidth < 650) {
           return Container(
             // height: size.height,
             width: size.width,
@@ -30,7 +30,7 @@ class HelperClass extends StatelessWidget {
                 vertical: size.height * 0.05, horizontal: 18),
             child: mobile,
           );
-        } else if (constraints.maxWidth < 1200) {
+        } else if (constraints.maxWidth >= 650 && constraints.maxWidth < 1130) {
           return Container(
             // height: size.height,
             width: size.width,

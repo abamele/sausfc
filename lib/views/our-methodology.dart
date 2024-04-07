@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:saus_fc/views/dashboard.dart';
-import 'package:saus_fc/views/home-page.dart';
-import 'package:saus_fc/views/single-helper.dart';
+import 'package:flutter/widgets.dart';
+import 'package:saus_fc/helpers/single-helper.dart';
 
 import '../globals/app-color.dart';
 import '../globals/app-styles.dart';
@@ -26,10 +26,9 @@ class _OurMethodologyState extends State<OurMethodology> {
         toolbarHeight: 90,
         title: MaterialButton(
           elevation: 8,
-          child: Image.asset("assets/logoweb.png", width: 55, height: 55),
+          child: Image.asset("assets/sausfc_logo.png", width: 55, height: 55),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MainDashBoard()));
+            Navigator.popUntil(context, (route) => route.isFirst);
           },
         ),
         centerTitle: true,
@@ -37,9 +36,185 @@ class _OurMethodologyState extends State<OurMethodology> {
       drawer: NavberWidget(),
       body: SingleHelper(
         bgColor: AppColors.bgColor,
-        mobile: Container(),
-        tablet: Container(),
-        desktop: ListView(
+        mobile: ListView(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(""),
+                SizedBox(height: 20,),
+                Center(
+                  child: Text(
+                    "OUR METHODOLOGY",
+                    style: AppTextStyles.montserratStyle(
+                        fontSize: 20, color: Colors.white),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: size.height * 0.4,
+                  child: Image.asset("assets/ball_mastery.jpeg"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    "BALL MASTERY",
+                    style: AppTextStyles.montserratStyle(
+                        fontSize: 14, color: Colors.white),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    'Ball Mastery enables our players to develop'
+                        'a healthy, confident relationship with the ball.'
+                        'Players will focus on using different parts of'
+                        'their feet and executing different turns,'
+                        'forward moves and side moves.',
+                    style: TextStyle(color: Colors.white, fontSize: 11),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  height: size.height * 0.4,
+                  child: Image.asset("assets/passing.png"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    "PASSING & RECEIVING",
+                    style: AppTextStyles.montserratStyle(
+                        fontSize: 14, color: Colors.white),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    'Passing & Receiving is a key technical'
+                        'component of the modern game. We will'
+                        'introduce various methods to pass to'
+                        'teammates and receive on different angles'
+                        'and parts of the foot in an array of game'
+                        'realistic situations.',
+                    style: TextStyle(color: Colors.white, fontSize: 11),
+                  ),
+                ),
+                SizedBox(height: 25,),
+                Container(
+                  height: size.height * 0.4,
+                  child: Image.asset("assets/shooting.png"),
+                ),
+                SizedBox(height: 15,),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    "CREATING & FINISHING",
+                    style: AppTextStyles.montserratStyle(
+                        fontSize: 14, color: Colors.white),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                  child: Text(
+                        'Passing & Receiving is a key technical'
+                        'component of the modern game. We will'
+                        'introduce various methods to pass to'
+                        'teammates and receive on different angles'
+                        'and parts of the foot in an array of game'
+                        'realistic situations.',
+                    style: TextStyle(color: Colors.white, fontSize: 11),
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text("")
+              ],
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                color: AppColors.bgColor2,
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      height: size.height * 0.4,
+                      child: Image.asset("assets/twisting.jpeg"),
+                    ),
+                    Text(
+                      "TWISTING & TURNING",
+                      style: AppTextStyles.montserratStyle(
+                          fontSize: 14, color: Colors.white),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5.0),
+                      child: Text(
+                        'The objective of Twisting and Turning is to'
+                            'develop the art of "Escape and Evade". Our'
+                            'sessions will focus on the mechanics of'
+                            'turning and introduce it into realistic game'
+                            'situations for players to execute in their games.',
+                        style: TextStyle(color: Colors.white, fontSize: 11),
+                      ),
+                    ),
+                    SizedBox(height: 25.0,),
+                    Container(
+                      height: size.height * 0.4,
+                      child: Image.asset("assets/dribbling.png"),
+                    ),
+                    SizedBox(height: 15.0,),
+                    Text(
+                      "DRIBBLING & RUNNING WITH THE BALL",
+                      style: AppTextStyles.montserratStyle(
+                          fontSize: 14, color: Colors.white),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 5.0),
+                      child: Text(
+                        'Dribbling & Running with the ball aim to'
+                            'develop the art of ‘Survive on the ball’. Our'
+                            'sessions will highlight the difference between'
+                            'both methods and when to identify what may'
+                            'be the best approach.',
+                        style: TextStyle(color: Colors.white, fontSize: 11),
+                      ),
+                    ),
+                    SizedBox(height: 25.0,),
+                    Container(
+                      height: size.height * 0.4,
+                      child: Image.asset("assets/smiling.png"),
+                    ),
+                    Text(
+                      "SMALL SIDED GAMES",
+                      style: AppTextStyles.montserratStyle(
+                          fontSize: 14, color: Colors.white),
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(left: 10.0, right: 10),
+                        child: Text(
+                          'Small sided games have enormous'
+                              'advantages for the development of young'
+                              'footballers. Increased ball handling time,'
+                              'quick decision-making scenarios and perfect'
+                              'setting to improve creativity and confidence.',
+                          style: TextStyle(color: Colors.white, fontSize: 11),
+                        )
+                    ),
+                    SizedBox(
+                      height: 55,
+                    ),
+                    Text("")
+                  ],
+                )),
+            FooterClass()
+          ],
+        ),
+        tablet: ListView(
           children: [
             Column(
               mainAxisSize: MainAxisSize.min,
@@ -56,212 +231,114 @@ class _OurMethodologyState extends State<OurMethodology> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    /*Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: MaterialButton(
-                        color: AppColors.themeColor,
-                        splashColor: AppColors.lawGreen,
-                        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-                        shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide.none),
-                        hoverColor: AppColors.aqua,
-                        elevation: 10,
-                        height: 60,
-                        minWidth: 90,
-                        focusElevation: 12,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(Icons.arrow_back),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "HOME",
-                              style: AppTextStyles.headerTextStyle(color: Colors.black),
-                            ),
-                          ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: size.height * 0.4,
+                          width: size.width * 0.2,
+                          child: Image.asset("assets/ball_mastery.jpeg"),
                         ),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => MainDashBoard()));
-                        },
                       ),
-                    ),*/
-
+                      SizedBox(width: 15,),
+                      Expanded(
+                        child: Container(
+                          height: size.height * 0.4,
+                          width: size.width * 0.2,
+                          child: Image.asset("assets/passing.png"),
+                        ),
+                      ),
+                      SizedBox(width: 15,),
+                      Expanded(
+                        child: Container(
+                          height: size.height * 0.4,
+                          width: size.width * 0.2,
+                          child: Image.asset("assets/shooting.png"),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
                     Expanded(
                       child: Column(
                         children: [
-                          Container(
-                            height: size.height * 0.4,
-                            width: size.width * 0.2,
-                            child: Image.asset("assets/maillot.jpeg"),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              "BALL MASTERY",
+                              style: AppTextStyles.montserratStyle(
+                                  fontSize: 28, color: Colors.white),
+                            ),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "BALL MASTERY",
-                            style: AppTextStyles.montserratStyle(
-                                fontSize: 28, color: Colors.white),
-                          ),
-                          Text(
-                            'Ball Mastery enables our players to develop\n'
-                                'a healthy, confident relationship with the ball.\n'
-                                'Players will focus on using different parts of\n'
-                                'their feet and executing different turns,\n'
-                                'forward moves and side moves.',
-                            style: AppTextStyles.normalStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              'Ball Mastery enables our players to develop'
+                                  'a healthy, confident relationship with the ball.'
+                                  'Players will focus on using different parts of'
+                                  'their feet and executing different turns,'
+                                  'forward moves and side moves.',
+                              style: AppTextStyles.normalStyle(color: Colors.white),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
                     Expanded(
                       child: Column(
                         children: [
-                          Container(
-                            height: size.height * 0.4,
-                            width: size.width * 0.2,
-                            child: Image.asset("assets/maillot.jpeg"),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
                           Text(
                             "PASSING & RECEIVING",
                             style: AppTextStyles.montserratStyle(
                                 fontSize: 28, color: Colors.white),
                           ),
-                          Text(
-                            'Passing & Receiving is a key technical\n'
-                                'component of the modern game. We will\n'
-                                'introduce various methods to pass to\n'
-                                'teammates and receive on different angles\n'
-                                'and parts of the foot in an array of game\n'
-                                'realistic situations.',
-                            style: AppTextStyles.normalStyle(color: Colors.white),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              'Passing & Receiving is a key technical'
+                                  'component of the modern game. We will'
+                                  'introduce various methods to pass to'
+                                  'teammates and receive on different angles'
+                                  'and parts of the foot in an array of game'
+                                  'realistic situations.',
+                              style: AppTextStyles.normalStyle(color: Colors.white),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      width: 15.0,
-                    ),
                     Expanded(
                       child: Column(
                         children: [
-                          Container(
-                            height: size.height * 0.4,
-                            width: size.width * 0.2,
-                            child: Image.asset("assets/maillot.jpeg"),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
                           Text(
                             "CREATING & FINISHING",
                             style: AppTextStyles.montserratStyle(
                                 fontSize: 28, color: Colors.white),
                           ),
-                          Text(
-                            'Passing & Receiving is a key technical\n'
-                                'component of the modern game. We will\n'
-                                'introduce various methods to pass to\n'
-                                'teammates and receive on different angles\n'
-                                'and parts of the foot in an array of game\n'
-                                'realistic situations.',
-                            style: AppTextStyles.normalStyle(color: Colors.white),
+                          Padding(
+                              padding: const EdgeInsets.only(left: 10.0, right: 10),
+                              child: Text(
+                                'Passing & Receiving is a key technical'
+                                    'component of the modern game. We will'
+                                    'introduce various methods to pass to'
+                                    'teammates and receive on different angles'
+                                    'and parts of the foot in an array of game'
+                                    'realistic situations.',
+                                style: AppTextStyles.normalStyle(color: Colors.white),
+                              )
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 25.0,
-                ),
-                /*Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "BALL MASTERY",
-                          style: AppTextStyles.montserratStyle(
-                              fontSize: 28, color: Colors.white),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Ball Mastery enables our players to develop\n'
-                          'a healthy, confident relationship with the ball.\n'
-                          'Players will focus on using different parts of\n'
-                          'their feet and executing different turns,\n'
-                          'forward moves and side moves.',
-                          style: AppTextStyles.normalStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "PASSING & RECEIVING",
-                          style: AppTextStyles.montserratStyle(
-                              fontSize: 28, color: Colors.white),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Passing & Receiving is a key technical\n'
-                          'component of the modern game. We will\n'
-                          'introduce various methods to pass to\n'
-                          'teammates and receive on different angles\n'
-                          'and parts of the foot in an array of game\n'
-                          'realistic situations.',
-                          style: AppTextStyles.normalStyle(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 25.0,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          "CREATING & FINISHING",
-                          style: AppTextStyles.montserratStyle(
-                              fontSize: 28, color: Colors.white),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Text(
-                          'Creating & Finishing requires players to take\n'
-                          'risks, express themselves, and to be brave in\n'
-                          'these situations. We will introduce and\n'
-                          'encourage our players to adopt this mindset\n'
-                          'and how we can score using different methods.',
-                          style: AppTextStyles.normalStyle(color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),*/
                 SizedBox(
                   height: 55,
                 ),
@@ -284,212 +361,356 @@ class _OurMethodologyState extends State<OurMethodology> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        /*MaterialButton(
-                          color: AppColors.themeColor,
-                          splashColor: AppColors.lawGreen,
-                          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
-                          shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide.none),
-                          hoverColor: AppColors.aqua,
-                          elevation: 10,
-                          height: 60,
-                          minWidth: 90,
-                          focusElevation: 12,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(Icons.arrow_back),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "HOME",
-                                style: AppTextStyles.headerTextStyle(color: Colors.black),
-                              ),
-                            ],
+                        Expanded(
+                          child: Container(
+                            height: size.height * 0.4,
+                            width: size.width * 0.2,
+                            child: Image.asset("assets/twisting.jpeg"),
                           ),
-                          onPressed: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) => MainDashBoard()));
-                          },
-                        ),*/
+                        ),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Container(
+                            height: size.height * 0.4,
+                            width: size.width * 0.2,
+                            child: Image.asset("assets/dribbling.png"),
+                          ),
+                        ),
+                        SizedBox(width: 15,),
+                        Expanded(
+                          child: Container(
+                            height: size.height * 0.4,
+                            width: size.width * 0.2,
+                            child: Image.asset("assets/smiling.png"),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
                         Expanded(
                           child: Column(
                             children: [
-                              Container(
-                                height: size.height * 0.4,
-                                width: size.width * 0.2,
-                                child: Image.asset("assets/maillot.jpeg"),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(
+                                  "TWISTING & TURNING",
+                                  style: AppTextStyles.montserratStyle(
+                                      fontSize: 28, color: Colors.white),
+                                ),
                               ),
-                              SizedBox(
-                                height: 20,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(
+                                  'The objective of Twisting and Turning is to'
+                                      'develop the art of "Escape and Evade". Our'
+                                      'sessions will focus on the mechanics of'
+                                      'turning and introduce it into realistic game'
+                                      'situations for players to execute in their games.',
+                                  style: AppTextStyles.normalStyle(color: Colors.white),
+                                ),
                               ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
                               Text(
-                                "TWISTING & \nTURNING ",
+                                "DRIBBLING & RUNNING WITH THE BALL",
                                 style: AppTextStyles.montserratStyle(
                                     fontSize: 28, color: Colors.white),
                               ),
-                              Text(
-                                'The objective of Twisting and Turning is to\n'
-                                    'develop the art of "Escape and Evade". Our\n'
-                                    'sessions will focus on the mechanics of\n'
-                                    'turning and introduce it into realistic game\n'
-                                    'situations for players to execute in their games.',
-                                style: AppTextStyles.normalStyle(
-                                    color: Colors.white),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 10.0),
+                                child: Text(
+                                  'Dribbling & Running with the ball aim to'
+                                      'develop the art of ‘Survive on the ball’. Our'
+                                      'sessions will highlight the difference between'
+                                      'both methods and when to identify what may'
+                                      'be the best approach.',
+                                  style: AppTextStyles.normalStyle(color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(
-                          width: 15.0,
-                        ),
                         Expanded(
                           child: Column(
                             children: [
-                              Container(
-                                height: size.height * 0.4,
-                                width: size.width * 0.2,
-                                child: Image.asset("assets/maillot.jpeg"),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Text(
-                                "DRIBBLING & RUNNING \nWITH THE BALL",
-                                style: AppTextStyles.montserratStyle(
-                                    fontSize: 28, color: Colors.white),
-                              ),
-                              Text(
-                                'Dribbling & Running with the ball aim to\n'
-                                    'develop the art of ‘Survive on the ball’. Our\n'
-                                    'sessions will highlight the difference between\n'
-                                    'both methods and when to identify what may\n'
-                                    'be the best approach.',
-                                style: AppTextStyles.normalStyle(
-                                    color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: 20.0,
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                height: size.height * 0.4,
-                                width: size.width * 0.2,
-                                child: Image.asset("assets/maillot.jpeg"),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
                               Text(
                                 "SMALL SIDED GAMES",
                                 style: AppTextStyles.montserratStyle(
                                     fontSize: 28, color: Colors.white),
                               ),
-                              Text(
-                                'Small sided games have enormous\n'
-                                    'advantages for the development of young\n'
-                                    'footballers. Increased ball handling time,\n'
-                                    'quick decision-making scenarios and perfect\n'
-                                    'setting to improve creativity and confidence.',
-                                style: AppTextStyles.normalStyle(
-                                    color: Colors.white),
-                              )
+                              Padding(
+                                  padding: const EdgeInsets.only(left: 10.0, right: 10),
+                                  child: Text(
+                                    'Small sided games have enormous'
+                                        'advantages for the development of young'
+                                        'footballers. Increased ball handling time,'
+                                        'quick decision-making scenarios and perfect'
+                                        'setting to improve creativity and confidence.',
+                                    style: AppTextStyles.normalStyle(color: Colors.white),
+                                  )
+                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 25.0,
-                    ),
-                    /*Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TWISTING & \nTURNING ",
-                              style: AppTextStyles.montserratStyle(
-                                  fontSize: 28, color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              'The objective of Twisting and Turning is to\n'
-                              'develop the art of "Escape and Evade". Our\n'
-                              'sessions will focus on the mechanics of\n'
-                              'turning and introduce it into realistic game\n'
-                              'situations for players to execute in their games.',
-                              style: AppTextStyles.normalStyle(
-                                  color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 25.0,
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              "DRIBBLING & RUNNING \nWITH THE BALL",
-                              style: AppTextStyles.montserratStyle(
-                                  fontSize: 28, color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              'Dribbling & Running with the ball aim to\n'
-                              'develop the art of ‘Survive on the ball’. Our\n'
-                              'sessions will highlight the difference between\n'
-                              'both methods and when to identify what may\n'
-                              'be the best approach.',
-                              style: AppTextStyles.normalStyle(
-                                  color: Colors.white),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 25.0,
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              "SMALL SIDED GAMES",
-                              style: AppTextStyles.montserratStyle(
-                                  fontSize: 28, color: Colors.white),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              'Small sided games have enormous\n'
-                              'advantages for the development of young\n'
-                              'footballers. Increased ball handling time,\n'
-                              'quick decision-making scenarios and perfect\n'
-                              'setting to improve creativity and confidence.',
-                              style: AppTextStyles.normalStyle(
-                                  color: Colors.white),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),*/
                     SizedBox(
                       height: 55,
                     ),
                     Text("")
                   ],
                 )),
+            FooterClass()
+          ],
+        ),
+        desktop: ListView(
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Text(
+                    "OUR METHODOLOGY",
+                    style: AppTextStyles.montserratStyle(
+                        fontSize: 46, color: Colors.white),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: size.height * 0.4,
+                        width: size.width * 0.2,
+                        child: Image.asset("assets/ball_mastery.jpeg"),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: size.height * 0.4,
+                        width: size.width * 0.2,
+                        child: Image.asset("assets/passing.png"),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: size.height * 0.4,
+                        width: size.width * 0.2,
+                        child: Image.asset("assets/shooting.png"),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15,),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            "BALL MASTERY",
+                            style: AppTextStyles.montserratStyle(
+                                fontSize: 28, color: Colors.white),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 70.0),
+                            child: Text(
+                              'Ball Mastery enables our players to develop'
+                                  'a healthy, confident relationship with the ball.'
+                                  'Players will focus on using different parts of'
+                                  'their feet and executing different turns,'
+                                  'forward moves and side moves.',
+                              style: AppTextStyles.normalStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            "PASSING & RECEIVING",
+                            style: AppTextStyles.montserratStyle(
+                                fontSize: 28, color: Colors.white),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 70.0),
+                            child: Text(
+                              'Passing & Receiving is a key technical'
+                                  'component of the modern game. We will'
+                                  'introduce various methods to pass to'
+                                  'teammates and receive on different angles'
+                                  'and parts of the foot in an array of game'
+                                  'realistic situations.',
+                              style: AppTextStyles.normalStyle(color: Colors.white),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            "CREATING & FINISHING",
+                            style: AppTextStyles.montserratStyle(
+                                fontSize: 28, color: Colors.white),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 70.0, right: 20),
+                            child: Text(
+                              'Passing & Receiving is a key technical'
+                                  'component of the modern game. We will'
+                                  'introduce various methods to pass to'
+                                  'teammates and receive on different angles'
+                                  'and parts of the foot in an array of game'
+                                  'realistic situations.',
+                              style: AppTextStyles.normalStyle(color: Colors.white),
+                            )
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 55,
+                ),
+                Text("")
+              ],
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width,
+                color: AppColors.bgColor2,
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 55,
+                    ),
+                    Text(""),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: size.height * 0.4,
+                            width: size.width * 0.2,
+                            child: Image.asset("assets/twisting.jpeg"),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: size.height * 0.4,
+                            width: size.width * 0.2,
+                            child: Image.asset("assets/dribbling.png"),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: size.height * 0.4,
+                            width: size.width * 0.2,
+                            child: Image.asset("assets/smiling.png"),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 15,),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                "TWISTING & TURNING",
+                                style: AppTextStyles.montserratStyle(
+                                    fontSize: 28, color: Colors.white),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 70.0),
+                                child: Text(
+                                  'The objective of Twisting and Turning is to'
+                                      'develop the art of "Escape and Evade". Our'
+                                      'sessions will focus on the mechanics of'
+                                      'turning and introduce it into realistic game'
+                                      'situations for players to execute in their games.',
+                                  style: AppTextStyles.normalStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                "DRIBBLING & RUNNING\n WITH THE BALL",
+                                style: AppTextStyles.montserratStyle(
+                                    fontSize: 28, color: Colors.white),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 60.0),
+                                child: Text(
+                                  'Dribbling & Running with the ball aim to'
+                                      'develop the art of ‘Survive on the ball’. Our'
+                                      'sessions will highlight the difference between'
+                                      'both methods and when to identify what may'
+                                      'be the best approach.',
+                                  style: AppTextStyles.normalStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Text(
+                                "SMALL SIDED GAMES",
+                                style: AppTextStyles.montserratStyle(
+                                    fontSize: 28, color: Colors.white),
+                              ),
+                              Padding(
+                                  padding: const EdgeInsets.only(left: 70.0, right: 20),
+                                  child: Text(
+                                    'Small sided games have enormous'
+                                        'advantages for the development of young'
+                                        'footballers. Increased ball handling time,'
+                                        'quick decision-making scenarios and perfect'
+                                        'setting to improve creativity and confidence.',
+                                    style: AppTextStyles.normalStyle(color: Colors.white),
+                                  )
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 55,
+                    ),
+                    Text("")
+                  ],
+                )),
+            Container(
+              color: Colors.white,
+              height: 70,
+              width: double.infinity,
+            ),
             FooterClass()
           ],
         ),

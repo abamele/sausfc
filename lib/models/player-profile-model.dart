@@ -1,9 +1,12 @@
 class PlayerProfileModel {
   String? playerId;
   String? fullName;
+  String? shortName;
   num playerNo;
   String? profileImage;
   String? imageUrl;
+  List<String>? imageGallery;
+  String? logo;
   String? dateOfBirth;
   String? nationality;
   String? flag;
@@ -21,8 +24,8 @@ class PlayerProfileModel {
   String? positionPlayed;
   num goalsScored;
   String? booking;
-  num season;
-  String? club;
+  List<num> season;
+  List<String>? club;
   num passAccurency;
   num dribble;
   num speed;
@@ -59,9 +62,12 @@ class PlayerProfileModel {
   PlayerProfileModel(
       {this.playerId,
       this.fullName,
+      this.shortName,
       required this.playerNo,
       this.profileImage,
       this.imageUrl,
+      this.imageGallery,
+      this.logo,
       this.dateOfBirth,
       this.nationality,
       this.flag,

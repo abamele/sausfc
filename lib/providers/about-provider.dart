@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:saus_fc/models/service-model.dart';
 
 import '../models/about-model.dart';
 
@@ -25,7 +24,7 @@ class AboutProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<AboutModel> get getForwardDataList {
+  List<AboutModel> get getAboutDataList {
     return aboutDataList;
   }
 }

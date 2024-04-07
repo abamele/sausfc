@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:saus_fc/globals/app-color.dart';
+import 'package:saus_fc/views/about.dart';
 import 'package:saus_fc/views/our-methodology.dart';
 import 'package:saus_fc/views/partner.dart';
 import 'package:saus_fc/views/terms-and-conditions.dart';
 import '../views/dashboard.dart';
+import '../views/location.dart';
 import '../views/support-staff.dart';
 
 class NavberWidget extends StatefulWidget {
@@ -43,7 +46,7 @@ class _NavberWidgetState extends State<NavberWidget> {
               height: 100,
               width: 100,
             ),*/
-            /*Padding(
+            Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
                 child: Row(
@@ -51,19 +54,26 @@ class _NavberWidgetState extends State<NavberWidget> {
                     SizedBox(
                       width: 70,
                     ),
-                    Text(
-                      'ABOUT THE ACADEMY',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                      // style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Text(
+                        'ABOUT THE ACADEMY',
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                        // style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AboutMe()));
+                },
               ),
-            ),*/
+            ),
             /* Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: InkWell(
@@ -84,7 +94,7 @@ class _NavberWidgetState extends State<NavberWidget> {
                         },
                       ),
                     ),*/
-            Padding(
+            /*Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
                 child: Row(
@@ -93,7 +103,7 @@ class _NavberWidgetState extends State<NavberWidget> {
                       width: 70,
                     ),
                     Text(
-                      'HOME',
+                      'ACADEMY LIFE',
                       style: TextStyle(
                           fontSize: 20,
                           color: Colors.white,
@@ -103,11 +113,11 @@ class _NavberWidgetState extends State<NavberWidget> {
                   ],
                 ),
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MainDashBoard()));
+                  /*Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MainDashBoard()));*/
                 },
               ),
-            ),
+            ),*/
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
@@ -116,13 +126,15 @@ class _NavberWidgetState extends State<NavberWidget> {
                     SizedBox(
                       width: 70,
                     ),
-                    Text(
-                      'OUR METHODOLOGY',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                      // style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Text(
+                        'OUR METHODOLOGY',
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                        // style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
@@ -134,7 +146,7 @@ class _NavberWidgetState extends State<NavberWidget> {
                 },
               ),
             ),
-            Padding(
+            /*Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
                 child: Row(
@@ -154,7 +166,7 @@ class _NavberWidgetState extends State<NavberWidget> {
                 ),
                 onTap: () {},
               ),
-            ),
+            ),*/
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: InkWell(
@@ -163,13 +175,15 @@ class _NavberWidgetState extends State<NavberWidget> {
                     SizedBox(
                       width: 70,
                     ),
-                    Text(
-                      'SUPPORT STAFF',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                      // style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Text(
+                        'SUPPORT STAFF',
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                        // style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
@@ -187,13 +201,15 @@ class _NavberWidgetState extends State<NavberWidget> {
                     SizedBox(
                       width: 70,
                     ),
-                    Text(
-                      'PARTNERS',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                      // style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Text(
+                        'PARTNERS',
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                        // style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
@@ -211,17 +227,22 @@ class _NavberWidgetState extends State<NavberWidget> {
                     SizedBox(
                       width: 70,
                     ),
-                    Text(
-                      'LOCATION',
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                      // style: TextStyle(color: Colors.white),
+                    Expanded(
+                      child: Text(
+                        'LOCATION',
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                        // style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ],
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => LocationPage()));
+                },
               ),
             ),
             /*Padding(

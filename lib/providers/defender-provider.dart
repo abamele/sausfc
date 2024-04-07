@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:saus_fc/models/player-profile-model.dart';
@@ -10,15 +9,18 @@ class DefenderProvider with ChangeNotifier {
     List<PlayerProfileModel> newList = [];
 
     QuerySnapshot reviewDefenderValue =
-    await FirebaseFirestore.instance.collection("DefendersDb").get();
+        await FirebaseFirestore.instance.collection("DefendersDB").get();
     reviewDefenderValue.docs.forEach((element) {
       PlayerProfileModel playerProfileModel = PlayerProfileModel(
         //product data
         playerId: element.get("playerId"),
         fullName: element.get("fullName"),
+        shortName: element.get("shortName"),
         playerNo: element.get("playerNo"),
         profileImage: element.get("profileImage"),
         imageUrl: element.get("imageUrl"),
+        imageGallery: List<String>.from(element.get('imageGallery')),
+        //logo: element.get("logo"),
         dateOfBirth: element.get("dateOfBirth"),
         nationality: element.get("nationality"),
         flag: element.get("flag"),
@@ -36,8 +38,8 @@ class DefenderProvider with ChangeNotifier {
         positionPlayed: element.get("positionPlayed"),
         goalsScored: element.get("goalsScored"),
         booking: element.get("booking"),
-        season: element.get("season"),
-        club: element.get("club"),
+        season: List<num>.from(element.get('season')),
+        club: List<String>.from(element.get('club')),
         passAccurency: element.get("passAccurency"),
         dribble: element.get("dribble"),
         speed: element.get("speed"),
@@ -61,10 +63,10 @@ class DefenderProvider with ChangeNotifier {
         agilityCoachNote: element.get("agilityCoachNote"),
         agilityCoachName: element.get("agilityCoachName"),
 
-        endurScore: element.get("andurScore"),
+        endurScore: element.get("endurScore"),
         //endurAverageScore: element.get("andurAverageScore"),
-        endurCoachNote: element.get("andurCoachNote"),
-        endurCoachName: element.get("andurCoachName"),
+        endurCoachNote: element.get("endurCoachNote"),
+        endurCoachName: element.get("endurCoachName"),
 
         powerScore: element.get("powerScore"),
         //powerAverageScore: element.get("powerAverageScore"),

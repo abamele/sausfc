@@ -1,7 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../globals/app-assets.dart';
 import '../globals/app-color.dart';
@@ -22,16 +24,18 @@ class _HomePageState extends State<HomePage> {
   List images = [
     "assets/team 2021.jpeg",
     "assets/team2022_2.png",
-    "assets/team2022_3.png",
+    "assets/bursa_44.jpg",
     "assets/team2022_1.jpg",
     "assets/sausfcteam.jpeg",
-    "assets/team2023_1.png",
+    "assets/sausfc_2023.png",
+    "assets/sausfc_istanbul_team.png",
+    "assets/match_sakarya.jpeg",
   ];
   final socialButtons = <String>[
-    AppAssets.facebook,
+    //AppAssets.facebook,
+    AppAssets.insta,
     AppAssets.twitter,
     AppAssets.linkedIn,
-    AppAssets.insta,
     AppAssets.github,
   ];
 
@@ -49,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                 animatedTexts: [
                   TyperAnimatedText('Welcome to SAUS FC Academy',
                       textStyle:
-                          AppTextStyles.montserratStyle(color: Colors.white))
+                          TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold))
                 ],
                 pause: const Duration(milliseconds: 1000),
                 displayFullTextOnTap: true,
@@ -61,7 +65,166 @@ class _HomePageState extends State<HomePage> {
           ),
           //const ProfileAnimation(),
           Constants.sizedBox(height: 25.0),
-          buildHomePersonalInfo(size),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Stack(
+                children: [
+                  AspectRatio(
+                    aspectRatio: 2.2,
+                    child: Swiper(
+                      itemCount: images.length,
+                      itemBuilder: (context, index) {
+                        final image = images[index];
+                        return Image.asset(
+                          image,
+                          fit: BoxFit.cover,
+                        );
+                      },
+                      indicatorLayout: PageIndicatorLayout.COLOR,
+                      physics: NeverScrollableScrollPhysics(),
+                      controller: _swiperController,
+                      autoplay: false,
+                      pagination: const SwiperPagination(
+                          margin: EdgeInsets.only(bottom: 20),
+                          alignment: Alignment.bottomCenter,
+                          builder: DotSwiperPaginationBuilder(
+                            //size: 12,
+                              color: Colors.white, activeColor: Color(0xff00416A))),
+                      //control: const SwiperControl(color: Colors.black),
+                    ),
+                  ),
+                  Positioned(
+                      left: 0,
+                      right: 0,
+                      bottom: 3.0,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: size.width * 0.0), // Adjust spacing as needed
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _swiperController.previous();
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  size: 25,
+                                  color: AppColors.white,
+                                )),
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _swiperController.next();
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: 25,
+                                  color: AppColors.white,
+                                )),
+                          ],
+                        ),
+                      ))
+                ],
+              ),
+              Constants.sizedBox(height: 22.0),
+              FadeInUp(
+                duration: const Duration(milliseconds: 1600),
+                child: SizedBox(
+                  height: 48,
+                  child: ListView.separated(
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: socialButtons.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    separatorBuilder: (context, child) =>
+                        Constants.sizedBox(width: 8.0),
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () async{
+                          if(index==0){
+                            const url =
+                                'https://www.instagram.com/saus_f.c/'; // Lien que vous voulez ouvrir
+                            if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                          } else {
+                          throw 'Could not launch $url';
+                          }
+                          } else if(index==1){
+                            const url =
+                                ''; // Lien que vous voulez ouvrir
+                            if (await canLaunch(url)) {
+                              await launch(url, forceSafariVC: false);
+                            } else {
+                              throw 'Could not launch $url';
+                            }
+                          } else if(index==2){
+                            const url =
+                                'https://www.linkedin.com/in/aba-mele-maloum-oumar-245a0b1a3/'; // Lien que vous voulez ouvrir
+                            if (await canLaunch(url)) {
+                              await launch(url, forceSafariVC: false);
+                            } else {
+                              throw 'Could not launch $url';
+                            }
+                          } else if(index==3){
+                            const url =
+                                'https://github.com/abamele?tab=repositories'; // Lien que vous voulez ouvrir
+                            if (await canLaunch(url)) {
+                              await launch(url, forceSafariVC: false);
+                            } else {
+                              throw 'Could not launch $url';
+                            }
+                          }
+                        },
+                        onHover: (value) {
+                          setState(() {
+                            if (value) {
+                              socialBI = index;
+                            } else {
+                              socialBI = null;
+                            }
+                          });
+                        },
+                        borderRadius: BorderRadius.circular(550.0),
+                        hoverColor: AppColors.themeColor,
+                        splashColor: AppColors.lawGreen,
+                        child: Ink(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: AppColors.themeColor, width: 2.0),
+                            color: AppColors.bgColor,
+                            shape: BoxShape.circle,
+                          ),
+                          padding: const EdgeInsets.all(6),
+                          child: Center(
+                            child: Image.asset(
+                              socialButtons[index],
+                              width: 10,
+                              height: 12,
+                              color: socialBI == index ? AppColors.bgColor : AppColors.themeColor,
+                              // fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              Constants.sizedBox(height: 18.0),
+              /*FadeInUp(
+          duration: const Duration(milliseconds: 1800),
+          child: AppButtons.buildMaterialButton(
+              onTap: () {}, buttonName: 'Download CV'),
+        ),*/
+            ],
+          )
         ],
       ),
       tablet: Column(
@@ -77,27 +240,140 @@ class _HomePageState extends State<HomePage> {
             displayFullTextOnTap: true,
             stopPauseOnTap: true,
           ),
-          Constants.sizedBox(height: 25.0),
-          buildHomePersonalInfo(size),
-          /*Column(
+          SizedBox(
+            height: 15,
+          ),
+          Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 25.0),
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TyperAnimatedText('Welcome to SAUS FC Academy',
-                        textStyle: AppTextStyles.montserratStyle(
-                            color: Colors.white))
-                  ],
-                  pause: const Duration(milliseconds: 1000),
-                  displayFullTextOnTap: true,
-                  stopPauseOnTap: true,
+              AspectRatio(
+                aspectRatio: 2.2,
+                child: Swiper(
+                  itemCount: images.length,
+                  itemBuilder: (context, index) {
+                    final image = images[index];
+                    return Image.asset(
+                      image,
+                      fit: BoxFit.cover,
+                    );
+                  },
+                  indicatorLayout: PageIndicatorLayout.COLOR,
+                  physics: NeverScrollableScrollPhysics(),
+                  controller: _swiperController,
+                  autoplay: false,
+                  pagination: const SwiperPagination(
+                      margin: EdgeInsets.only(bottom: 25),
+                      alignment: Alignment.bottomCenter,
+                      builder: DotSwiperPaginationBuilder(
+                        //size: 12,
+                          color: Colors.white, activeColor: Color(0xff00416A))),
+                  //control: const SwiperControl(color: Colors.black),
                 ),
               ),
-              Constants.sizedBox(height: 25.0),
-              //const ProfileAnimation(),
+              Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 3.0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: size.width * 0.2), // Adjust spacing as needed
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _swiperController.previous();
+                              });
+                            },
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              size: 40,
+                              color: AppColors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _swiperController.next();
+                              });
+                            },
+                            icon: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 40,
+                              color: AppColors.white,
+                            )),
+                      ],
+                    ),
+                  ))
             ],
-          ),*/
+          ),
+          Constants.sizedBox(height: 22.0),
+          FadeInUp(
+            duration: const Duration(milliseconds: 1600),
+            child: SizedBox(
+              height: 48,
+              child: ListView.separated(
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: socialButtons.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, child) =>
+                    Constants.sizedBox(width: 8.0),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () async{
+                      if(index==0){
+                        const url =
+                            'https://www.instagram.com/saus_f.c/'; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      } else if(index==1){
+                        const url =
+                            ''; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      } else if(index==2){
+                        const url =
+                            'https://www.linkedin.com/in/aba-mele-maloum-oumar-245a0b1a3/'; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      } else if(index==3){
+                        const url =
+                            'https://github.com/abamele?tab=repositories'; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      }
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        if (value) {
+                          socialBI = index;
+                        } else {
+                          socialBI = null;
+                        }
+                      });
+                    },
+                    borderRadius: BorderRadius.circular(550.0),
+                    hoverColor: AppColors.themeColor,
+                    splashColor: AppColors.lawGreen,
+                    child: buildSocialButton(
+                        asset: socialButtons[index],
+                        hover: socialBI == index ? true : false),
+                  );
+                },
+              ),
+            ),
+          ),
           //const ProfileAnimation(),
         ],
       ),
@@ -107,7 +383,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           AnimatedTextKit(
             animatedTexts: [
-              TyperAnimatedText('Welcome to SAUS FC Academy',
+              TyperAnimatedText('WELCOME TO SAUS FC ACADEMY',
                   textStyle: AppTextStyles.montserratStyle(color: Colors.white))
             ],
             pause: const Duration(milliseconds: 1000),
@@ -117,26 +393,141 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 15,
           ),
-          buildHomePersonalInfo(size),
-          /*Column(
+          Stack(
             children: [
-              AnimatedTextKit(
-                animatedTexts: [
-                  TyperAnimatedText('Welcome to SAUS FC Academy',
-                      textStyle: AppTextStyles.montserratStyle(
-                          color: Colors.white))
-                ],
-                pause: const Duration(milliseconds: 1000),
-                displayFullTextOnTap: true,
-                stopPauseOnTap: true,
+              AspectRatio(
+                aspectRatio: 2.2,
+                child: Swiper(
+                  itemCount: images.length,
+                  itemBuilder: (context, index) {
+                    final image = images[index];
+                    return Image.asset(
+                      image,
+                      fit: BoxFit.cover,
+                    );
+                  },
+                  indicatorLayout: PageIndicatorLayout.COLOR,
+                  physics: NeverScrollableScrollPhysics(),
+                  controller: _swiperController,
+                  autoplay: false,
+                  pagination: const SwiperPagination(
+                      margin: EdgeInsets.only(bottom: 25),
+                      alignment: Alignment.bottomCenter,
+                      builder: DotSwiperPaginationBuilder(
+                        //size: 12,
+                          color: Colors.white, activeColor: Color(0xff00416A))),
+                  //control: const SwiperControl(color: Colors.black),
+                ),
               ),
-              Constants.sizedBox(height: 25.0),
-              const ProfileAnimation(),
+              Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 3.0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: size.width * 0.2), // Adjust spacing as needed
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _swiperController.previous();
+                              });
+                            },
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              size: 40,
+                              color: AppColors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _swiperController.next();
+                              });
+                            },
+                            icon: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 40,
+                              color: AppColors.white,
+                            )),
+                      ],
+                    ),
+                  ))
             ],
-          ),*/
+          ),
+          Constants.sizedBox(height: 22.0),
+          FadeInUp(
+            duration: const Duration(milliseconds: 1600),
+            child: SizedBox(
+              height: 48,
+              child: ListView.separated(
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: socialButtons.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, child) =>
+                    Constants.sizedBox(width: 8.0),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () async{
+                      if(index==0){
+                        const url =
+                            'https://www.instagram.com/saus_f.c/'; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      } else if(index==1){
+                        const url =
+                            ''; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      } else if(index==2){
+                        const url =
+                            'https://www.linkedin.com/in/aba-mele-maloum-oumar-245a0b1a3/'; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      } else if(index==3){
+                        const url =
+                            'https://github.com/abamele?tab=repositories'; // Lien que vous voulez ouvrir
+                        if (await canLaunch(url)) {
+                          await launch(url, forceSafariVC: false);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      }
+                    },
+                    onHover: (value) {
+                      setState(() {
+                        if (value) {
+                          socialBI = index;
+                        } else {
+                          socialBI = null;
+                        }
+                      });
+                    },
+                    borderRadius: BorderRadius.circular(550.0),
+                    hoverColor: AppColors.themeColor,
+                    splashColor: AppColors.lawGreen,
+                    child: buildSocialButton(
+                        asset: socialButtons[index],
+                        hover: socialBI == index ? true : false),
+                  );
+                },
+              ),
+            ),
+          ),
+          //buildHomePersonalInfo(size),
         ],
       ),
-      paddingWidth: size.width * 0.1,
+      paddingWidth: size.width * 0.0,
       bgColor: Colors.transparent,
     );
   }
@@ -157,7 +548,7 @@ class _HomePageState extends State<HomePage> {
         Stack(
           children: [
             AspectRatio(
-              aspectRatio: 2,
+              aspectRatio: 2.2,
               child: Swiper(
                 itemCount: images.length,
                 itemBuilder: (context, index) {
@@ -168,11 +559,14 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
                 indicatorLayout: PageIndicatorLayout.COLOR,
+                physics: NeverScrollableScrollPhysics(),
                 controller: _swiperController,
                 autoplay: false,
                 pagination: const SwiperPagination(
+                  margin: EdgeInsets.only(bottom: 25),
                     alignment: Alignment.bottomCenter,
                     builder: DotSwiperPaginationBuilder(
+                      //size: 12,
                         color: Colors.white, activeColor: Color(0xff00416A))),
                 //control: const SwiperControl(color: Colors.black),
               ),
@@ -183,7 +577,7 @@ class _HomePageState extends State<HomePage> {
                 bottom: 3.0,
                 child: Container(
                   padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.3), // Adjust spacing as needed
+                      horizontal: size.width * 0.2), // Adjust spacing as needed
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -214,69 +608,13 @@ class _HomePageState extends State<HomePage> {
                 ))
           ],
         ),
-        /*FadeInDown(
-          duration: const Duration(milliseconds: 1200),
-          child: Text(
-            'Hello, It\'s Me',
-            style: AppTextStyles.montserratStyle(color: Colors.white),
-          ),
-        ),
-        Constants.sizedBox(height: 15.0),
-        FadeInRight(
-          duration: const Duration(milliseconds: 1400),
-          child: Text(
-            'Mukhtar Ali Khan',
-            style: AppTextStyles.headingStyles(),
-          ),
-        ),
-        Constants.sizedBox(height: 15.0),
-        FadeInLeft(
-          duration: const Duration(milliseconds: 1400),
-          child: Row(
-            children: [
-              Text(
-                'And I\'m a ',
-                style: AppTextStyles.montserratStyle(color: Colors.white),
-              ),
-              AnimatedTextKit(
-                animatedTexts: [
-                  TyperAnimatedText(
-                    'Flutter Developer',
-                    textStyle:
-                    AppTextStyles.montserratStyle(color: Colors.lightBlue),
-                  ),
-                  TyperAnimatedText('Academy',
-                      textStyle: AppTextStyles.montserratStyle(
-                          color: Colors.lightBlue)),
-                  TyperAnimatedText('SAUS FC Academy',
-                      textStyle: AppTextStyles.montserratStyle(
-                          color: Colors.lightBlue))
-                ],
-                pause: const Duration(milliseconds: 1000),
-                displayFullTextOnTap: true,
-                stopPauseOnTap: true,
-              )
-            ],
-          ),
-        ),
-        Constants.sizedBox(height: 15.0),
-        FadeInDown(
-          duration: const Duration(milliseconds: 1600),
-          child: Expanded(
-            child: Text(
-              'In publishing and graphic design, Lorem ipsum is a placeholder '
-                  'text commonly used to demonstrate the visual form of a document'
-                  ' or a typeface without relying on meaningful content.',
-              style: AppTextStyles.normalStyle(),
-            ),
-          ),
-        ),*/
         Constants.sizedBox(height: 22.0),
         FadeInUp(
           duration: const Duration(milliseconds: 1600),
           child: SizedBox(
             height: 48,
             child: ListView.separated(
+              physics: NeverScrollableScrollPhysics(),
               itemCount: socialButtons.length,
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -284,7 +622,41 @@ class _HomePageState extends State<HomePage> {
                   Constants.sizedBox(width: 8.0),
               itemBuilder: (context, index) {
                 return InkWell(
-                  onTap: () {},
+                  onTap: () async{
+                    if(index==0){
+                      const url =
+                          'https://www.instagram.com/saus_f.c/'; // Lien que vous voulez ouvrir
+                      if (await canLaunch(url)) {
+                        await launch(url, forceSafariVC: false);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    } else if(index==1){
+                      const url =
+                          ''; // Lien que vous voulez ouvrir
+                      if (await canLaunch(url)) {
+                        await launch(url, forceSafariVC: false);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    } else if(index==2){
+                      const url =
+                          'https://www.linkedin.com/in/aba-mele-maloum-oumar-245a0b1a3/'; // Lien que vous voulez ouvrir
+                      if (await canLaunch(url)) {
+                        await launch(url, forceSafariVC: false);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    } else if(index==3){
+                      const url =
+                          'https://github.com/abamele?tab=repositories'; // Lien que vous voulez ouvrir
+                      if (await canLaunch(url)) {
+                        await launch(url, forceSafariVC: false);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    }
+                  },
                   onHover: (value) {
                     setState(() {
                       if (value) {

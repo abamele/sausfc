@@ -17,7 +17,7 @@ class AppColors {
   static Color HeelerColor = Color(0xFFECEFF1);
   static Color aestheticsColor = Color(0xFFeaebfe);
   static Color PurpleColor = Color(0xFF462d87);
-  static Color nColor = Color(0xFFffede7);
+  static Color nColor = Color(0xFF23242a);
   static Color blackLifhtColor = Color(0xFF45526e);
 
 }

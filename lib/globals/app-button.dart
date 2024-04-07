@@ -17,8 +17,8 @@ class AppButtons {
           borderRadius: BorderRadius.circular(30), borderSide: BorderSide.none),
       hoverColor: AppColors.aqua,
       elevation: 7,
-      height: 46,
-      minWidth: 130,
+      height: 60,
+      minWidth: 230,
       focusElevation: 12,
       child: Text(
         buttonName,

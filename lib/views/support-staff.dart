@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:saus_fc/globals/app-color.dart';
 import 'package:saus_fc/views/footer.dart';
-import 'package:saus_fc/views/single-helper.dart';
+import 'package:saus_fc/helpers/single-helper.dart';
 
 import '../globals/app-constant.dart';
-import '../globals/app-styles.dart';
 import '../widgets/navbar_widget.dart';
-import 'dashboard.dart';
 
 class SupportStaff extends StatefulWidget {
   const SupportStaff({super.key});
@@ -26,10 +24,9 @@ class _SupportStaffState extends State<SupportStaff> {
         toolbarHeight: 90,
         title: MaterialButton(
           elevation: 8,
-          child: Image.asset("assets/logoweb.png", width: 55, height: 55),
+          child: Image.asset("assets/sausfc_logo.png", width: 55, height: 55),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MainDashBoard()));
+            Navigator.popUntil(context, (route) => route.isFirst);
           },
         ),
         centerTitle: true,
@@ -68,13 +65,423 @@ class _SupportStaffState extends State<SupportStaff> {
       drawer: NavberWidget(),
       body: SingleHelper(
         bgColor: AppColors.bgColor,
-        mobile: Container(),
-        tablet: Container(),
+        mobile: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 10,
+                right: 10,
+                top: 8.0,
+              ),
+              child: Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Text(
+                        "SUPERVISION",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 26),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    AspectRatio(
+                      aspectRatio: 2,
+                      child: Image.asset(
+                        "assets/training.jpeg",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Constants.sizedBox(height: 30.0),
+                    Text(
+                      'The teaching staff of the Academy is in\n'
+                          'permanent contact with students in the\n'
+                          'field and outside, available 24 hours a\n'
+                          'day, 7 days a week .',
+                      style: TextStyle(
+                          fontSize: 14.0, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    Constants.sizedBox(height: 20.0),
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Text(
+                        "More than twenty-five people, all qualified in their field, serve the students of the Academy.",
+                        style: TextStyle(fontSize: 14),
+                      ),
+                    ),
+                    Constants.sizedBox(height: 25.0),
+                    Text(
+                      "DIRECTION",
+                      style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            "Training Centre Director: ",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABA MELE",
+                            style: TextStyle(
+                              fontSize: 11,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            "School Manager: ",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABA MELE, FATIH MAZREK",
+                            style: TextStyle(fontSize: 11),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            "Treasurer: ",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABBAS HUSSEIN",
+                            style: TextStyle(fontSize: 11),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 25.0),
+                    Text(
+                      "TECHNICAL STAFF",
+                      style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            "Group coach: ",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABA MELE",
+                            style: TextStyle(fontSize: 11),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            "Physical trainer coach: ",
+                            style: TextStyle(
+                                fontSize: 14, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "FATIH MAZREK",
+                            style: TextStyle(fontSize: 11),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 30.0, left: 10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Goalkeepers Coach: ",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.bold),
+                          ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.only(left: 8.0, bottom: 30),
+                            child: Text(
+                              "FATIH, ABA MELE",
+                              style: TextStyle(fontSize: 11),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              height: 70,
+              width: double.infinity,
+            ),
+            FooterClass()
+          ],
+        ),
+        tablet: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 8.0,
+              ),
+              child: Card(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Text(
+                        "SUPERVISION",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 36),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    AspectRatio(
+                      aspectRatio: 2,
+                      child: Image.asset(
+                        "assets/training.jpeg",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Constants.sizedBox(height: 30.0),
+                    Text(
+                      'The teaching staff of the Academy is in\n'
+                          'permanent contact with students in the\n'
+                          'field and outside, available 24 hours a\n'
+                          'day, 7 days a week .',
+                      style: TextStyle(
+                          fontSize: 28.0, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                    Constants.sizedBox(height: 20.0),
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Text(
+                        "More than twenty-five people, all qualified in their field, serve the students of the Academy.",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                    Constants.sizedBox(height: 25.0),
+                    Text(
+                      "DIRECTION",
+                      style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 80.0),
+                          child: Text(
+                            "Training Centre Director: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABA MELE",
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 80.0),
+                          child: Text(
+                            "School Manager: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABA MELE, FATIH MAZREK",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 80.0),
+                          child: Text(
+                            "Treasurer: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABBAS HUSSEIN",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 25.0),
+                    Text(
+                      "TECHNICAL STAFF",
+                      style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 80.0),
+                          child: Text(
+                            "Group coach: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "ABA MELE",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 80.0),
+                          child: Text(
+                            "Physical trainer coach: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            "FATIH MAZREK",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Constants.sizedBox(height: 15.0),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 30.0, left: 80),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Goalkeepers Coach: ",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          Padding(
+                            padding:
+                            const EdgeInsets.only(left: 8.0, bottom: 30),
+                            child: Text(
+                              "FATIH, ABA MELE",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              color: Colors.white,
+              height: 70,
+              width: double.infinity,
+            ),
+            FooterClass()
+          ],
+        ),
         desktop: ListView(
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                  left: 110, right: 110, top: 8.0,),
+                left: 110,
+                right: 110,
+                top: 8.0,
+              ),
               child: Card(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -94,7 +501,7 @@ class _SupportStaffState extends State<SupportStaff> {
                     AspectRatio(
                       aspectRatio: 2,
                       child: Image.asset(
-                        "assets/staff.jpeg",
+                        "assets/training.jpeg",
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -112,15 +519,15 @@ class _SupportStaffState extends State<SupportStaff> {
                     Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: Text(
-                        "More than twenty-five people, all qualified in their field, serve the students of the Academy.",
+                        "More than five people, all qualified in their field, serve the students of the Academy.",
                         style: TextStyle(fontSize: 24),
                       ),
                     ),
                     Constants.sizedBox(height: 25.0),
                     Text(
                       "DIRECTION",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 46),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 46),
                     ),
                     Constants.sizedBox(height: 15.0),
                     Row(
@@ -162,7 +569,7 @@ class _SupportStaffState extends State<SupportStaff> {
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                            "",
+                            "ABA MELE, FATIH MAZREK",
                             style: TextStyle(fontSize: 24),
                           ),
                         ),
@@ -175,7 +582,7 @@ class _SupportStaffState extends State<SupportStaff> {
                         Padding(
                           padding: const EdgeInsets.only(left: 80.0),
                           child: Text(
-                            "Legal Officer: ",
+                            "Treasurer: ",
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
@@ -183,7 +590,7 @@ class _SupportStaffState extends State<SupportStaff> {
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                            "",
+                            "ABBAS HUSSEIN",
                             style: TextStyle(fontSize: 24),
                           ),
                         ),
@@ -192,8 +599,8 @@ class _SupportStaffState extends State<SupportStaff> {
                     Constants.sizedBox(height: 25.0),
                     Text(
                       "TECHNICAL STAFF",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 46),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 46),
                     ),
                     Constants.sizedBox(height: 15.0),
                     Row(
@@ -223,7 +630,7 @@ class _SupportStaffState extends State<SupportStaff> {
                         Padding(
                           padding: const EdgeInsets.only(left: 80.0),
                           child: Text(
-                            "Physical trainers: ",
+                            "Physical trainer coach: ",
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
@@ -231,7 +638,7 @@ class _SupportStaffState extends State<SupportStaff> {
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                            "FATIH ",
+                            "FATIH MAZREK",
                             style: TextStyle(fontSize: 24),
                           ),
                         ),
@@ -249,7 +656,8 @@ class _SupportStaffState extends State<SupportStaff> {
                                 fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 8.0, bottom: 30),
+                            padding:
+                                const EdgeInsets.only(left: 8.0, bottom: 30),
                             child: Text(
                               "FATIH, ABA MELE",
                               style: TextStyle(fontSize: 24),
@@ -261,6 +669,11 @@ class _SupportStaffState extends State<SupportStaff> {
                   ],
                 ),
               ),
+            ),
+            Container(
+              color: Colors.white,
+              height: 70,
+              width: double.infinity,
             ),
             FooterClass()
           ],
